@@ -1,0 +1,356 @@
+/* Reset & basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif; /* General font remains Roboto */
+  background: url("/images/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  background-color: black;
+}
+
+/* Star canvas behind content */
+#star-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* behind everything */
+}
+
+/* Remove extra z-index from these elements */
+header,
+main,
+footer {
+  position: relative;
+}
+
+/* Header & Navigation */
+header {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 10px 20px;
+  border-bottom: 2px solid #444;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.logo h1 {
+  font-family: "Oswald", sans-serif; /* Logo uses Oswald */
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* Default nav on larger screens */
+nav {
+  display: block;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+}
+nav ul li {
+  margin: 0 15px;
+}
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  transition: color 0.3s ease;
+}
+nav ul li a:hover {
+  color: #0af;
+}
+
+/* Hide toggle and overlay footer on larger screens */
+.menu-toggle,
+.close-btn {
+  display: none;
+}
+
+/* Main content area */
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.3);
+}
+main .content {
+  max-width: 800px;
+}
+main h2 {
+  font-family: "Source Code Pro", monospace;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+main p {
+  font-family: "Caveat", cursive; /* Paragraph uses Caveat */
+  font-size: 1.3rem;
+}
+
+/* Centered, rounded image */
+.center-image {
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Footer */
+footer {
+  background: rgba(0, 0, 0, 0.85);
+  text-align: center;
+  padding: 15px 20px;
+  border-top: 2px solid #444;
+  font-family: "Saira", sans-serif; /* Footer uses Saira */
+  font-size: 0.8rem; /* Smaller footer text */
+}
+
+/* Small screen adjustments for navigation */
+@media (max-width: 768px) {
+  /* Show menu toggle icon */
+  .menu-toggle {
+    display: block;
+    font-size: 1.8rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 9999;
+  }
+  
+  /* Use an overlay for navigation on small screens */
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    transition: right 0.4s ease;
+    padding-top: 60px;
+    z-index: 9999;
+    display: block;
+  }
+  nav.active {
+    right: 0;
+  }
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  nav ul li {
+    margin: 20px 0;
+  }
+  .close-btn {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 9999;
+  }
+  /* Nav footer styling inside overlay */
+  nav .nav-footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 0.9rem;
+    font-family: "Saira", sans-serif;
+  }
+}
+
+/* Larger screens: inline nav; hide toggle elements and nav-footer */
+@media (min-width: 769px) {
+  .menu-toggle,
+  .close-btn {
+    display: none;
+  }
+  nav {
+    position: static;
+    background: none;
+    width: auto;
+    height: auto;
+    padding: 0;
+  }
+  nav ul {
+    flex-direction: row;
+  }
+  nav ul li {
+    margin: 0 15px;
+  }
+  nav .nav-footer {
+    display: none;
+  }
+}
+
+.social-icons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-icons a img {
+  height: 25px;
+  transition: transform 0.3s ease;
+  margin: 5px;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.1);
+}
+
+/* ---------------------- */
+/* About Me Page Styles   */
+/* ---------------------- */
+
+/* Unique background for About Me page */
+body.about-page {
+  background: url("/images/aboutbackground.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-color: black;
+}
+
+/* Container for About Me content */
+.about-content {
+  max-width: 800px;
+  margin: 40px auto;
+}
+
+/* About header (upper section) */
+.about-header {
+  background: rgba(0, 0, 0, 0.85); /* Darker background for readability */
+  padding: 20px;
+  border-radius: 15px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-image {
+  margin-bottom: 10px;
+}
+
+.profile-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  margin-bottom: 10px;
+}
+
+.profile-name h1 {
+  font-family: "Oswald", sans-serif;
+  font-size: 2rem;
+  margin: 0;
+  position: relative;
+}
+
+/* Underline below the name */
+.profile-name h1::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 3px;
+  background: #fff;
+  margin: 10px auto 0;
+}
+
+.profile-social {
+  margin-bottom: 0;
+}
+
+.profile-social a {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.profile-social a:hover {
+  color: #0af;
+}
+
+/* Gap between header and body */
+.header-body-gap {
+  height: 20px;
+}
+
+/* About body (lower section) */
+.about-body {
+  background: rgba(0, 0, 0, 0.75); /* Darker background for text */
+  padding: 20px;
+  border-radius: 15px 15px;
+  margin-top: 20px;
+}
+
+.profile-text {
+  text-align: center;
+}
+
+.profile-text h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.profile-text h2 i {
+  font-size: 1.8rem;
+}
+
+/* Bigger divider under About Me header */
+.divider-line {
+  width: 70px;
+  height: 3px;
+  background: #fff;
+  margin: 0 auto 20px;
+}
+
+.profile-text p {
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
