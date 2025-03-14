@@ -1,4 +1,4 @@
-/* Reset & basic styles */
+/* RESET & BASIC STYLES */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif; /* General font remains Roboto */
+  font-family: "Roboto", sans-serif;
   background: url("/images/background.jpg") no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
@@ -16,30 +16,24 @@ body {
   background-color: black;
 }
 
-/* Star canvas behind content */
+/* STAR CANVAS BEHIND CONTENT (USED BY ALL PAGES) */
 #star-canvas {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0; /* behind everything */
+  z-index: 0;
+  /* Prevent canvas from intercepting clicks */
+  pointer-events: none;
 }
 
-/* Remove extra z-index from these elements */
-header,
-main,
-footer {
-  position: relative;
-}
-
-/* Header & Navigation */
+/* HEADER & NAVIGATION */
 header {
   background: rgba(0, 0, 0, 0.75);
   padding: 10px 20px;
   border-bottom: 2px solid #444;
 }
-
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -48,15 +42,12 @@ header {
   justify-content: space-between;
   position: relative;
 }
-
 .logo h1 {
-  font-family: "Oswald", sans-serif; /* Logo uses Oswald */
+  font-family: "Oswald", sans-serif;
   font-size: 1.5rem;
   letter-spacing: 1px;
   margin: 0;
 }
-
-/* Default nav on larger screens */
 nav {
   display: block;
 }
@@ -71,23 +62,24 @@ nav ul li a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
-  font-family: "Roboto", sans-serif;
   transition: color 0.3s ease;
 }
 nav ul li a:hover {
   color: #0af;
 }
 
-/* Hide toggle and overlay footer on larger screens */
+/* MENU TOGGLE & CLOSE BUTTON (FOR SMALL SCREENS) */
 .menu-toggle,
 .close-btn {
   display: none;
 }
 
-/* Main content area */
+/* -------------------------------- */
+/*       HOMEPAGE & DEFAULT STYLES  */
+/* -------------------------------- */
 main {
   flex: 1;
-  display: flex;
+  display: flex; /* centers content */
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -103,11 +95,10 @@ main h2 {
   margin-bottom: 20px;
 }
 main p {
-  font-family: "Caveat", cursive; /* Paragraph uses Caveat */
+  font-family: "Caveat", cursive;
   font-size: 1.3rem;
 }
-
-/* Centered, rounded image */
+/* Centered, rounded image (homepage) */
 .center-image {
   display: block;
   margin: 0 auto 20px auto;
@@ -117,19 +108,18 @@ main p {
   object-fit: cover;
 }
 
-/* Footer */
+/* FOOTER */
 footer {
   background: rgba(0, 0, 0, 0.85);
   text-align: center;
   padding: 15px 20px;
   border-top: 2px solid #444;
-  font-family: "Saira", sans-serif; /* Footer uses Saira */
-  font-size: 0.8rem; /* Smaller footer text */
+  font-family: "Saira", sans-serif;
+  font-size: 0.8rem;
 }
 
-/* Small screen adjustments for navigation */
+/* SMALL SCREEN ADJUSTMENTS FOR NAVIGATION */
 @media (max-width: 768px) {
-  /* Show menu toggle icon */
   .menu-toggle {
     display: block;
     font-size: 1.8rem;
@@ -137,8 +127,6 @@ footer {
     cursor: pointer;
     z-index: 9999;
   }
-  
-  /* Use an overlay for navigation on small screens */
   nav {
     position: fixed;
     top: 0;
@@ -154,15 +142,6 @@ footer {
   nav.active {
     right: 0;
   }
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-  nav ul li {
-    margin: 20px 0;
-  }
   .close-btn {
     display: block;
     position: absolute;
@@ -173,19 +152,18 @@ footer {
     cursor: pointer;
     z-index: 9999;
   }
-  /* Nav footer styling inside overlay */
-  nav .nav-footer {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-    color: #fff;
-    font-size: 0.9rem;
-    font-family: "Saira", sans-serif;
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  nav ul li {
+    margin: 20px 0;
   }
 }
 
-/* Larger screens: inline nav; hide toggle elements and nav-footer */
+/* LARGER SCREENS: INLINE NAVIGATION */
 @media (min-width: 769px) {
   .menu-toggle,
   .close-btn {
@@ -209,50 +187,46 @@ footer {
   }
 }
 
+/* -------------------------------- */
+/*     HOMEPAGE SOCIAL ICONS (img)  */
+/* -------------------------------- */
 .social-icons {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   gap: 15px;
 }
-
 .social-icons a img {
   height: 25px;
   transition: transform 0.3s ease;
   margin: 5px;
 }
-
 .social-icons a img:hover {
   transform: scale(1.1);
 }
 
-/* ---------------------- */
-/* About Me Page Styles   */
-/* ---------------------- */
-
-/* Unique background for About Me page */
+/* -------------------------------- */
+/*        ABOUT ME PAGE STYLES      */
+/* -------------------------------- */
 body.about-page {
   background: url("/images/aboutbackground.jpg") no-repeat center center fixed;
   background-size: cover;
   background-color: black;
 }
-
-/* Container for About Me content */
 .about-content {
   max-width: 800px;
   margin: 40px auto;
+  position: relative; /* ensure above star canvas */
+  z-index: 1;
 }
-
-/* About header (upper section) */
 .about-header {
-  background: rgba(0, 0, 0, 0.85); /* Darker background for readability */
+  background: rgba(0, 0, 0, 0.85);
   padding: 20px;
-  border-radius: 15px 15px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .profile-header {
   text-align: center;
   margin-bottom: 10px;
@@ -260,30 +234,26 @@ body.about-page {
   flex-direction: column;
   align-items: center;
 }
-
-.profile-image {
-  margin-bottom: 10px;
+.about-header .profile-image {
+  background-color: #000;
+  border-radius: 50%;
+  padding: 5px;
 }
-
 .profile-image img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
 }
-
 .profile-name {
   margin-bottom: 10px;
 }
-
 .profile-name h1 {
   font-family: "Oswald", sans-serif;
   font-size: 2rem;
   margin: 0;
   position: relative;
 }
-
-/* Underline below the name */
 .profile-name h1::after {
   content: "";
   display: block;
@@ -292,11 +262,7 @@ body.about-page {
   background: #fff;
   margin: 10px auto 0;
 }
-
-.profile-social {
-  margin-bottom: 0;
-}
-
+/* About-page Font Awesome icons */
 .profile-social a {
   font-size: 1.5rem;
   color: #fff;
@@ -304,28 +270,21 @@ body.about-page {
   transition: color 0.3s ease;
   text-decoration: none;
 }
-
 .profile-social a:hover {
   color: #0af;
 }
-
-/* Gap between header and body */
 .header-body-gap {
   height: 20px;
 }
-
-/* About body (lower section) */
 .about-body {
-  background: rgba(0, 0, 0, 0.75); /* Darker background for text */
+  background: rgba(0, 0, 0, 0.75);
   padding: 20px;
-  border-radius: 15px 15px;
+  border-radius: 15px;
   margin-top: 20px;
 }
-
 .profile-text {
   text-align: center;
 }
-
 .profile-text h2 {
   font-family: "Oswald", sans-serif;
   font-size: 1.8rem;
@@ -335,22 +294,205 @@ body.about-page {
   justify-content: center;
   gap: 10px;
 }
-
 .profile-text h2 i {
   font-size: 1.8rem;
 }
-
-/* Bigger divider under About Me header */
 .divider-line {
   width: 70px;
   height: 3px;
   background: #fff;
   margin: 0 auto 20px;
 }
-
 .profile-text p {
   font-family: "Varela Round", sans-serif;
   font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 15px;
+}
+
+/* -------------------------------- */
+/*     RESUME PAGE SPECIFIC STYLES  */
+/* -------------------------------- */
+body.resume-page {
+  background: url("/images/resumebg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-color: black;
+}
+body.resume-page main {
+  display: block;
+  background: none;
+  flex: none;
+  text-align: left;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
+}
+.resume-page .paper {
+  background: #fff;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+  color: #000;
+}
+/* Resume header: image on left, contact on right */
+.resume-page .resume-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #000;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+.resume-page .profile-image {
+  margin-right: 20px; /* space between image and contact details */
+}
+.resume-page .profile-image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #000;
+}
+/* Contact details: force left alignment and same starting vertical line */
+.resume-page .contact-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-left: 0;
+  text-align: left;
+}
+.resume-page .contact-details h1,
+.resume-page .contact-details p,
+.resume-page .contact-details .profile-social-resume {
+  margin-left: 0;
+}
+.resume-page .contact-details h1 {
+  font-family: "Oswald", sans-serif;
+  font-size: 2.2rem;
+  margin: 0;
+}
+.resume-page .contact-details p {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin: 5px 0;
+}
+/* Social icons in resume */
+.resume-page .profile-social-resume a {
+  color: #333;
+  margin-right: 10px;
+  margin-top: 5px;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+.resume-page .profile-social-resume a:hover {
+  color: #0af;
+}
+
+/* Resume paragraphs use Roboto Condensed */
+body.resume-page p {
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.resume-page .section {
+  margin-bottom: 25px;
+}
+.resume-page .section h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #000;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+/* Indent bullet lists (except skills list) */
+.resume-page .section ul:not(.skills-list) {
+  margin-left: 20px;
+  padding-left: 20px;
+  list-style: disc;
+}
+.resume-page .section p,
+.resume-page .section li {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+/* Horizontal skills list */
+.resume-page .skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.resume-page .skills-list li {
+  margin-right: 20px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+.resume-page .skills-list li i {
+  margin-right: 8px;
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+/* PRINT STYLES (for resume page only) */
+@media print {
+  /* Indent paragraphs & bullet items */
+  .resume-page p {
+    text-indent: 20px;
+  }
+  .resume-page .section li {
+    margin-left: 20px;
+  }
+  /* Hide icons in profile-social-resume and display links one per line */
+  .resume-page .profile-social-resume a i {
+    display: none !important;
+  }
+  .resume-page .profile-social-resume a::after {
+    content: attr(href);
+    display: block;
+    font-size: 1.1rem;
+    color: #000;
+    margin-top: 2px;
+  }
+  /* Hide the print icon entirely in print */
+  .resume-page .profile-social-resume .print-icon {
+    display: none !important;
+  }
+  .resume-page .paper {
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+  }
+  header,
+  footer {
+    display: none;
+  }
+}
+/* For non-resume pages, keep icons visible in print */
+@media print {
+  body:not(.resume-page) .profile-social a i {
+    display: inline !important;
+  }
+  body:not(.resume-page) .profile-social a::after {
+    content: "" !important;
+  }
+}
+
+/* Small-screen adjustments for resume */
+@media (max-width: 600px) {
+  .resume-page .resume-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .resume-page .profile-image {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .resume-page .contact-details {
+    align-items: center;
+  }
 }

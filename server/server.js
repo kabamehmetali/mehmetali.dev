@@ -24,8 +24,8 @@ app.get('/about-me', (req, res) => {
   res.render('about-me'); // Create this view similarly if needed
 });
 
-app.get('/credentials', (req, res) => {
-  res.render('credentials'); // Create this view similarly if needed
+app.get('/resume', (req, res) => {
+  res.render('resume'); // Create this view similarly if needed
 });
 
 app.get('/links', (req, res) => {
