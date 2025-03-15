@@ -1,26 +1,46 @@
 <header>
-    <div class="nav-container">
-      <div class="logo">
-        <h1>MEHMET ALI KABA</h1>
-      </div>
-      <!-- Menu toggle icon (visible only on small screens) -->
-      <div class="menu-toggle">&#9776;</div>
-      <nav>
-        <!-- Close button for toggled nav (visible only on small screens) -->
-        <div class="close-btn">×</div>
-        <ul>
-          <li><a href="/">HOME</a></li>
-          <li><a href="/about-me.html">ABOUT ME</a></li>
-          <li><a href="/resume.html">MY RESUME</a></li>
-          <!-- <li><a href="/credentials.html">CREDENTIALS</a></li>
-          <li><a href="/links.html">LINKS</a></li>
-          <li><a href="/pages.html">PAGES</a></li> -->
-        </ul>
-        <!-- Nav footer: appears only in small-screen overlay -->
-        <div class="nav-footer">
-          <p>&copy; 2025 Mehmet Ali Kaba. All rights reserved.</p>
-        </div>
-      </nav>
+  <div class="nav-container">
+    <div class="logo">
+      <h1>MEHMET ALI KABA</h1>
     </div>
-  </header>
-  
+    <!-- Menu toggle icon (visible only on small screens) -->
+    <div class="menu-toggle">&#9776;</div>
+    <nav>
+      <!-- Close button for toggled nav (visible only on small screens) -->
+      <div class="close-btn">×</div>
+      <ul>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/blog">BLOG</a></li>
+        <li><a href="/projects">PROJECTS</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle">
+            PERSONAL INFO <i class="fa fa-caret-down"></i>
+          </a>
+          <ul class="dropdown-content">
+            <li><a href="/cover-letter">COVER LETTER</a></li>
+            <li><a href="/credentials">CREDENTIALS</a></li>
+            <li><a href="/resume">RESUME</a></li>
+            <li><a href="/about-me">ABOUT ME</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!-- Nav footer: appears only in small-screen overlay -->
+      <div class="nav-footer">
+        <p>&copy; 2025 Mehmet Ali Kaba. All rights reserved.</p>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var dropdownToggle = document.querySelector('.dropdown-toggle');
+    if (dropdownToggle) {
+      dropdownToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        var dropdownContent = this.nextElementSibling;
+        dropdownContent.classList.toggle('open');
+      });
+    }
+  });
+</script>

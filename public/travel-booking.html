@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" class="project-details-page">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GBC Travel Booking Application - Project Details</title>
+    <!-- Google Fonts: Montserrat, Roboto Condensed, Oswald, Caveat, Saira, Varela Round, and Open Sans -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Condensed:wght@400;700&family=Oswald:wght@400;700&family=Caveat:wght@400;700&family=Saira:wght@400;700&family=Varela+Round&family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" href="/images/icon.ico" type="image/x-icon" />
+    <!-- Inline style override for project details background and refined layout -->
+    <style>
+      body.project-details-page {
+        background: url("/images/resumebg.jpg") no-repeat center center fixed;
+        background-size: cover;
+        background-color: #222;
+        color: #333;
+      }
+      header {
+        width: 100%;
+        background: rgba(0, 0, 0, 0.75);
+        padding: 10px 20px;
+        border-bottom: 2px solid #444;
+      }
+      header .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+      }
+      header .logo h1 {
+        font-family: "Oswald", sans-serif;
+        font-size: 1.5rem;
+        color: #fff;
+        margin: 0;
+      }
+      header nav ul {
+        list-style: none;
+        display: flex;
+      }
+      header nav ul li {
+        margin: 0 15px;
+        position: relative;
+      }
+      header nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+      header nav ul li a:hover {
+        color: #0af;
+      }
+      header .menu-toggle,
+      header .close-btn {
+        display: none;
+      }
+      /* Title Paper */
+      .credentials-title-paper {
+        margin: 40px auto 0;
+        max-width: 900px;
+      }
+      .credentials-title-box {
+        background: rgba(0, 0, 0, 0.75);
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+      }
+      .credentials-title-box h1 {
+        font-family: "Oswald", sans-serif;
+        font-size: 2.2rem;
+        color: #fff;
+        margin: 0;
+      }
+      /* Project Details Container */
+      .project-detail-container {
+        max-width: 900px;
+        margin: 20px auto 40px;
+        background: #fff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      }
+      .project-detail-section {
+        margin-bottom: 30px;
+      }
+      .project-detail-section h2 {
+        font-family: "Oswald", sans-serif;
+        font-size: 1.8rem;
+        margin: 30px 0 15px;
+        color: #222;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 5px;
+      }
+      .project-detail-section p {
+        font-family: "Varela Round", sans-serif;
+        font-size: 1.2rem;
+        line-height: 1.7;
+        margin-bottom: 15px;
+        color: #555;
+      }
+      .project-detail-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+      }
+      .project-detail-links a {
+        text-decoration: none;
+        color: #0af;
+        font-weight: bold;
+        font-size: 1.1rem;
+        border: 2px solid #0af;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .project-detail-links a:hover {
+        background-color: #0af;
+        color: #fff;
+      }
+      @media (max-width: 600px) {
+        .project-detail-links {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body class="project-details-page">
+    <!-- Star canvas -->
+    <canvas id="star-canvas"></canvas>
+    <!-- Header (same as other pages) -->
+    <header>
+      <div class="nav-container">
+        <div class="logo">
+          <h1>MEHMET ALI KABA</h1>
+        </div>
+        <!-- Menu toggle icon (visible only on small screens) -->
+        <div class="menu-toggle">&#9776;</div>
+        <nav>
+          <!-- Close button for toggled nav (visible only on small screens) -->
+          <div class="close-btn">×</div>
+          <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/blog">BLOG</a></li>
+            <li><a href="/projects">PROJECTS</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">
+                PERSONAL INFO <i class="fa fa-caret-down"></i>
+              </a>
+              <ul class="dropdown-content">
+                <li><a href="/cover-letter">COVER LETTER</a></li>
+                <li><a href="/credentials">CREDENTIALS</a></li>
+                <li><a href="/resume">RESUME</a></li>
+                <li><a href="/about-me">ABOUT ME</a></li>
+              </ul>
+            </li>
+          </ul>
+          <!-- Nav footer: appears only in small-screen overlay -->
+          <div class="nav-footer">
+            <p>&copy; 2025 Mehmet Ali Kaba. All rights reserved.</p>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var dropdownToggle = document.querySelector('.dropdown-toggle');
+        if (dropdownToggle) {
+          dropdownToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            var dropdownContent = this.nextElementSibling;
+            dropdownContent.classList.toggle('open');
+          });
+        }
+      });
+    </script>
+    <main>
+      <!-- Title Paper -->
+      <div class="credentials-title-paper">
+        <div class="credentials-title-box">
+          <h1>P&A Travel Booking Application</h1>
+        </div>
+      </div>
+      <!-- Project Details Container -->
+      <div class="project-detail-container">
+        <!-- Project Description -->
+        <div class="project-detail-section">
+          <p>
+            <strong>P&A Travel</strong> is a web-based travel booking platform built with <strong>ASP.NET Core MVC</strong> and <strong>C#</strong>. Developed as a group assignment (Group 125), this application simulates a travel agency platform where users can browse and book travel services such as flights, hotels, and car rentals.
+          </p>
+        </div>
+        <div>
+            <img src="/images/screenshot1.png" alt="Calculator Screenshot 1" style="width: 100%;" />
+            <br>
+            <br>
+            <img src="/images/screenshot2.png" alt="Calculator Screenshot 2" style="width: 100%;" />
+          </div>
+        <!-- Project Description & Authentication -->
+        <div class="project-detail-section">
+          <h2>Project Description</h2>
+          <p>
+            The platform implements a role-based system using ASP.NET Core Identity for authentication and authorization. Travelers (regular users) can search and book trips, while admins can manage listings and bookings. The project emphasizes a layered MVC architecture, secure user account management, and a responsive interface for a smooth booking experience.
+          </p>
+        </div>
+        <!-- Installation Instructions -->
+        <div class="project-detail-section">
+          <h2>Installation Instructions</h2>
+          <p>
+            Prerequisites: .NET 6.0 or higher and a SQL Server instance (e.g., SQL Server Express LocalDB).<br />
+            Clone the repository using:
+            <code>git clone https://github.com/kabamehmetali/Assignment_Group_125.git</code><br />
+            Open the solution file <code>GBC_Travel_Group_125.sln</code> in Visual Studio 2022 (or later), restore NuGet packages, update the database connection string in <code>appsettings.json</code> if necessary, and run <code>Update-Database</code> if using migrations. Then build and run the application.
+          </p>
+        </div>
+        <!-- Usage Instructions -->
+        <div class="project-detail-section">
+          <h2>Usage</h2>
+          <p>
+            Once launched, users can register or log in. Travelers can browse listings for flights, hotels, and car rentals, make bookings, and view past reservations. Admins can manage travel listings, view all bookings, and manage user accounts.
+          </p>
+        </div>
+        <!-- Contributors & Additional Info -->
+        <div class="project-detail-section">
+          <h2>Additional Information</h2>
+          <p>
+            Developed as a college coursework (COMP2139 assignment) by Group 125, led by <strong>Mehmet Ali KABA</strong>. The project utilizes ASP.NET Core MVC, Entity Framework Core, and ASP.NET Identity for secure account management.
+          </p>
+        </div>
+        <!-- License -->
+        <div class="project-detail-section">
+          <h2>License</h2>
+          <p>
+            This project is licensed under the MIT License. See the LICENSE file for details.
+          </p>
+        </div>
+        <!-- Links Row -->
+        <div class="project-detail-links">
+          <a href="/downloads/Travel-Booking.zip" target="_blank">Download</a>
+          <a href="https://github.com/kabamehmetali/Assignment_Group_125/tree/main" target="_blank">GitHub <i class="fab fa-github"></i></a>
+        </div>
+      </div>
+    </main>
+    <!-- Footer partial (loaded via main.js) -->
+    <div id="footer"></div>
+    <!-- Main JS -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

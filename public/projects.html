@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" class="projects-page">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects - Mehmet Ali Kaba</title>
+    <!-- Google Fonts: Montserrat, Roboto Condensed, Oswald, Caveat, Saira, Varela Round, and Open Sans -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Condensed:wght@400;700&family=Oswald:wght@400;700&family=Caveat:wght@400;700&family=Saira:wght@400;700&family=Varela+Round&family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" href="/images/icon.ico" type="image/x-icon" />
+    <!-- Inline style override for projects background and grid layout -->
+    <style>
+      body.projects-page {
+        background: url("/images/blog2.jpg") no-repeat center center fixed;
+        background-size: cover;
+        background-color: #222;
+      }
+      /* Grid container for project cards */
+      .projects-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+      /* Each project card takes roughly half the container */
+      .project-card {
+        flex: 1 1 calc(50% - 20px);
+        max-width: calc(50% - 20px);
+        cursor: pointer;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease;
+      }
+      .project-card:hover {
+        transform: translateY(-5px);
+      }
+      .project-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-bottom: 15px;
+      }
+      .project-card h2 {
+        font-family: "Oswald", sans-serif;
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        color: #333;
+      }
+      .project-card p {
+        font-family: "Varela Round", sans-serif;
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+        color: #555;
+      }
+      .project-card .buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .project-card button {
+        flex: 1;
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-family: "Roboto Condensed", sans-serif;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #0af;
+        color: #fff;
+        transition: background-color 0.3s ease;
+      }
+      .project-card button:hover {
+        background-color: #099;
+      }
+      /* Responsive adjustments */
+      @media (max-width: 600px) {
+        .project-card {
+          flex: 1 1 100%;
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body class="projects-page">
+    <!-- Star canvas -->
+    <canvas id="star-canvas"></canvas>
+    <!-- Navigation partial (loaded via main.js) -->
+    <div id="navbar"></div>
+    <main>
+      <!-- Title Section for Projects Page -->
+      <div class="paper credentials-title-paper">
+        <div class="credentials-title-box">
+          <h1>PROJECTS</h1>
+        </div>
+      </div>
+      <!-- Projects Grid Container -->
+      <div class="paper credentials-content-paper">
+        <div class="projects-grid">
+
+          <!-- Project Card 1: Simple Calculator Chrome Extension -->
+          <div
+            class="project-card"
+            onclick="window.location.href='simple-calculator-details.html'"
+          >
+            <img src="/images/c1.png" alt="Simple Calculator Chrome Extension" />
+            <h2>Simple Calculator Chrome Extension</h2>
+            <p><strong>Status:</strong> Deployed</p>
+            <p><strong>Languages:</strong> HTML, CSS, JavaScript</p>
+            <p><strong>Licence:</strong> MIT</p>
+            <div class="buttons">
+              <button onclick="window.location.href='simple-calculator-details.html'; event.stopPropagation();">
+                See Details
+              </button>
+              <button onclick="window.location.href='/downloads/Simple-Calculator.zip'; event.stopPropagation();">
+                Download
+              </button>
+            </div>
+          </div>
+
+          <!-- Project Card 2: Simple Paystub Calculator - Android App -->
+          <div
+            class="project-card"
+            onclick="window.location.href='paystub-calculator.html'"
+          >
+            <img src="/images/s1.png" alt="Simple Paystub Calculator - Android App" />
+            <h2>Simple Paystub Calculator - Android App</h2>
+            <p><strong>Status:</strong> Released</p>
+            <p><strong>Languages:</strong> Java, Android SDK</p>
+            <p><strong>Licence:</strong> MIT</p>
+            <div class="buttons">
+              <button onclick="window.location.href='paystub-calculator.html'; event.stopPropagation();">
+                See Details
+              </button>
+              <button onclick="window.location.href='/downloads/SimplePaystubCalculator.zip'; event.stopPropagation();">
+                Download
+              </button>
+            </div>
+          </div>
+
+          <!-- Project Card 3: GBC Travel Booking Application -->
+          <div
+            class="project-card"
+            onclick="window.location.href='travel-booking.html'"
+          >
+            <img src="/images/screenshot1.png" alt="GBC Travel Booking Application" />
+            <h2>GBC Travel Booking Application</h2>
+            <p><strong>Status:</strong> Released</p>
+            <p><strong>Languages:</strong> ASP.NET Core MVC, C#</p>
+            <p><strong>Licence:</strong> MIT</p>
+            <div class="buttons">
+              <button onclick="window.location.href='travel-booking.html'; event.stopPropagation();">
+                See Details
+              </button>
+              <button onclick="window.location.href='/downloads/Travel-Booking.zip'; event.stopPropagation();">
+                Download
+              </button>
+            </div>
+          </div>
+
+          <!-- Project Card 4: Hashtag Generator App -->
+          <div
+            class="project-card"
+            onclick="window.location.href='hashtag-generator-details.html'"
+          >
+            <img src="/images/Screenshot02.png" alt="Hashtag Generator App" />
+            <h2>Hashtag Generator App</h2>
+            <p><strong>Status:</strong> Deployed</p>
+            <p><strong>Languages:</strong> Java, Android, GPT-3.5</p>
+            <p><strong>Licence:</strong> MIT</p>
+            <div class="buttons">
+              <button onclick="window.location.href='hashtag-generator-details.html'; event.stopPropagation();">
+                See Details
+              </button>
+              <button onclick="window.location.href='/downloads/SimpleHastagApp.zip'; event.stopPropagation();">
+                Download
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+    <!-- Footer partial (loaded via main.js) -->
+    <div id="footer"></div>
+    <!-- Main JS -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>

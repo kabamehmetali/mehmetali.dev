@@ -16,7 +16,7 @@ body {
   background-color: black;
 }
 
-/* STAR CANVAS BEHIND CONTENT (USED BY ALL PAGES) */
+/* STAR CANVAS (USED BY ALL PAGES) */
 #star-canvas {
   position: fixed;
   top: 0;
@@ -24,7 +24,6 @@ body {
   width: 100%;
   height: 100%;
   z-index: 0;
-  /* Prevent canvas from intercepting clicks */
   pointer-events: none;
 }
 
@@ -34,6 +33,7 @@ header {
   padding: 10px 20px;
   border-bottom: 2px solid #444;
 }
+
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -42,30 +42,78 @@ header {
   justify-content: space-between;
   position: relative;
 }
+
 .logo h1 {
   font-family: "Oswald", sans-serif;
   font-size: 1.5rem;
   letter-spacing: 1px;
   margin: 0;
 }
+
 nav {
   display: block;
 }
+
 nav ul {
   list-style: none;
   display: flex;
 }
+
 nav ul li {
   margin: 0 15px;
+  position: relative; /* for dropdown positioning */
 }
+
 nav ul li a {
   color: #fff;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
 }
+
 nav ul li a:hover {
   color: #0af;
+}
+
+/* DROPDOWN STYLES */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.95);
+  min-width: 150px;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.dropdown-content li {
+  display: block;
+  text-align: left;
+  padding: 8px 15px;
+}
+
+.dropdown-content li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.dropdown-content li a:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Show dropdown on hover (desktop) */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Toggled by click (mobile) */
+.dropdown-content.open {
+  display: block;
 }
 
 /* MENU TOGGLE & CLOSE BUTTON (FOR SMALL SCREENS) */
@@ -79,26 +127,31 @@ nav ul li a:hover {
 /* -------------------------------- */
 main {
   flex: 1;
-  display: flex; /* centers content */
+  display: flex; 
+  flex-direction: column; /* Stack elements vertically */
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 20px;
   background: rgba(0, 0, 0, 0.3);
 }
+
 main .content {
   max-width: 800px;
 }
+
 main h2 {
   font-family: "Source Code Pro", monospace;
   font-size: 2.8rem;
   margin-bottom: 20px;
 }
+
 main p {
   font-family: "Caveat", cursive;
   font-size: 1.3rem;
 }
-/* Centered, rounded image (homepage) */
+
+/* Centered, rounded image */
 .center-image {
   display: block;
   margin: 0 auto 20px auto;
@@ -118,7 +171,7 @@ footer {
   font-size: 0.8rem;
 }
 
-/* SMALL SCREEN ADJUSTMENTS FOR NAVIGATION */
+/* SMALL SCREEN NAVIGATION */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -163,7 +216,7 @@ footer {
   }
 }
 
-/* LARGER SCREENS: INLINE NAVIGATION */
+/* LARGE SCREEN NAVIGATION */
 @media (min-width: 769px) {
   .menu-toggle,
   .close-btn {
@@ -188,7 +241,7 @@ footer {
 }
 
 /* -------------------------------- */
-/*     HOMEPAGE SOCIAL ICONS (img)  */
+/*     HOMEPAGE SOCIAL ICONS        */
 /* -------------------------------- */
 .social-icons {
   margin-top: 20px;
@@ -196,11 +249,13 @@ footer {
   justify-content: center;
   gap: 15px;
 }
+
 .social-icons a img {
   height: 25px;
   transition: transform 0.3s ease;
   margin: 5px;
 }
+
 .social-icons a img:hover {
   transform: scale(1.1);
 }
@@ -213,12 +268,14 @@ body.about-page {
   background-size: cover;
   background-color: black;
 }
+
 .about-content {
   max-width: 800px;
   margin: 40px auto;
-  position: relative; /* ensure above star canvas */
+  position: relative;
   z-index: 1;
 }
+
 .about-header {
   background: rgba(0, 0, 0, 0.85);
   padding: 20px;
@@ -227,6 +284,7 @@ body.about-page {
   flex-direction: column;
   align-items: center;
 }
+
 .profile-header {
   text-align: center;
   margin-bottom: 10px;
@@ -234,26 +292,31 @@ body.about-page {
   flex-direction: column;
   align-items: center;
 }
+
 .about-header .profile-image {
   background-color: #000;
   border-radius: 50%;
   padding: 5px;
 }
+
 .profile-image img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
 }
+
 .profile-name {
   margin-bottom: 10px;
 }
+
 .profile-name h1 {
   font-family: "Oswald", sans-serif;
   font-size: 2rem;
   margin: 0;
   position: relative;
 }
+
 .profile-name h1::after {
   content: "";
   display: block;
@@ -262,7 +325,8 @@ body.about-page {
   background: #fff;
   margin: 10px auto 0;
 }
-/* About-page Font Awesome icons */
+
+/* About Me Page Icons */
 .profile-social a {
   font-size: 1.5rem;
   color: #fff;
@@ -270,21 +334,26 @@ body.about-page {
   transition: color 0.3s ease;
   text-decoration: none;
 }
+
 .profile-social a:hover {
   color: #0af;
 }
+
 .header-body-gap {
   height: 20px;
 }
+
 .about-body {
   background: rgba(0, 0, 0, 0.75);
   padding: 20px;
   border-radius: 15px;
   margin-top: 20px;
 }
+
 .profile-text {
   text-align: center;
 }
+
 .profile-text h2 {
   font-family: "Oswald", sans-serif;
   font-size: 1.8rem;
@@ -294,15 +363,18 @@ body.about-page {
   justify-content: center;
   gap: 10px;
 }
+
 .profile-text h2 i {
   font-size: 1.8rem;
 }
+
 .divider-line {
   width: 70px;
   height: 3px;
   background: #fff;
   margin: 0 auto 20px;
 }
+
 .profile-text p {
   font-family: "Varela Round", sans-serif;
   font-size: 1.2rem;
@@ -318,6 +390,7 @@ body.resume-page {
   background-size: cover;
   background-color: black;
 }
+
 body.resume-page main {
   display: block;
   background: none;
@@ -327,6 +400,7 @@ body.resume-page main {
   position: relative;
   z-index: 1;
 }
+
 .resume-page .paper {
   background: #fff;
   margin: 0 auto;
@@ -336,6 +410,7 @@ body.resume-page main {
   position: relative;
   color: #000;
 }
+
 /* Resume header: image on left, contact on right */
 .resume-page .resume-header {
   display: flex;
@@ -344,9 +419,11 @@ body.resume-page main {
   padding-bottom: 20px;
   margin-bottom: 30px;
 }
+
 .resume-page .profile-image {
-  margin-right: 20px; /* space between image and contact details */
+  margin-right: 20px;
 }
+
 .resume-page .profile-image img {
   width: 150px;
   height: 150px;
@@ -354,7 +431,7 @@ body.resume-page main {
   object-fit: cover;
   border: 2px solid #000;
 }
-/* Contact details: force left alignment and same starting vertical line */
+
 .resume-page .contact-details {
   display: flex;
   flex-direction: column;
@@ -363,21 +440,25 @@ body.resume-page main {
   padding-left: 0;
   text-align: left;
 }
+
 .resume-page .contact-details h1,
 .resume-page .contact-details p,
 .resume-page .contact-details .profile-social-resume {
   margin-left: 0;
 }
+
 .resume-page .contact-details h1 {
   font-family: "Oswald", sans-serif;
   font-size: 2.2rem;
   margin: 0;
 }
+
 .resume-page .contact-details p {
   font-size: 1rem;
   line-height: 1.4;
   margin: 5px 0;
 }
+
 /* Social icons in resume */
 .resume-page .profile-social-resume a {
   color: #333;
@@ -386,6 +467,7 @@ body.resume-page main {
   transition: color 0.3s ease;
   text-decoration: none;
 }
+
 .resume-page .profile-social-resume a:hover {
   color: #0af;
 }
@@ -398,6 +480,7 @@ body.resume-page p {
 .resume-page .section {
   margin-bottom: 25px;
 }
+
 .resume-page .section h2 {
   font-family: "Oswald", sans-serif;
   font-size: 1.2rem;
@@ -405,18 +488,21 @@ body.resume-page p {
   padding-bottom: 5px;
   margin-bottom: 10px;
 }
+
 /* Indent bullet lists (except skills list) */
 .resume-page .section ul:not(.skills-list) {
   margin-left: 20px;
   padding-left: 20px;
   list-style: disc;
 }
+
 .resume-page .section p,
 .resume-page .section li {
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 8px;
 }
+
 /* Horizontal skills list */
 .resume-page .skills-list {
   display: flex;
@@ -425,12 +511,14 @@ body.resume-page p {
   padding: 0;
   margin: 0;
 }
+
 .resume-page .skills-list li {
   margin-right: 20px;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
 }
+
 .resume-page .skills-list li i {
   margin-right: 8px;
   font-size: 1.2rem;
@@ -439,14 +527,12 @@ body.resume-page p {
 
 /* PRINT STYLES (for resume page only) */
 @media print {
-  /* Indent paragraphs & bullet items */
   .resume-page p {
     text-indent: 20px;
   }
   .resume-page .section li {
     margin-left: 20px;
   }
-  /* Hide icons in profile-social-resume and display links one per line */
   .resume-page .profile-social-resume a i {
     display: none !important;
   }
@@ -457,7 +543,6 @@ body.resume-page p {
     color: #000;
     margin-top: 2px;
   }
-  /* Hide the print icon entirely in print */
   .resume-page .profile-social-resume .print-icon {
     display: none !important;
   }
@@ -472,7 +557,7 @@ body.resume-page p {
     display: none;
   }
 }
-/* For non-resume pages, keep icons visible in print */
+
 @media print {
   body:not(.resume-page) .profile-social a i {
     display: inline !important;
@@ -495,4 +580,236 @@ body.resume-page p {
   .resume-page .contact-details {
     align-items: center;
   }
+}
+
+/* -------------------------------- */
+/*      COVER LETTER PAGE STYLES    */
+/* -------------------------------- */
+body.cover-letter-page {
+  background: url("/images/coverbg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-color: black;
+}
+
+/* Title Box (Primary Box 1) */
+.cover-letter-title-paper {
+  margin: 10px auto;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+.cover-letter-title-box {
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.cover-letter-title-box h1 {
+  font-family: "Oswald", sans-serif;
+  font-size: 2.5rem;
+  color: #fff;
+  margin: 0;
+}
+
+/* Letter Content (Primary Box 2) */
+.cover-letter-content-paper {
+  background: #cedce3; /* Solid color that stands out */
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  color: #000;
+  border-radius: 10px;
+}
+
+.cover-letter-header {
+  border-radius: 8px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cover-letter-header .sender-info p {
+  margin: 2px 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.cover-letter-header .sender-info a {
+  color: #000;
+  text-decoration: none;
+}
+
+.cover-letter-header .sender-info a:hover {
+  text-decoration: underline;
+}
+
+.cover-letter-header .date-info p {
+  font-size: 1rem;
+  text-align: right;
+  line-height: 1.4;
+}
+
+.cover-letter-body p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.cover-letter-body a {
+  color: #0af;
+  text-decoration: none;
+}
+
+.cover-letter-body a:hover {
+  text-decoration: underline;
+}
+
+/* -------------------------------- */
+/*   NEW: CREDENTIALS PAGE STYLES   */
+/*   (same design as cover letter,   */
+/*    but different font for paragraphs)     */
+/* -------------------------------- */
+body.credentials-page {
+  background: url("/images/credentials.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-color: black;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Override paragraphs on credentials page with Open Sans for readability */
+.credentials-page p {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Title Paper */
+.credentials-title-paper {
+  margin: 10px auto;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+
+/* Title Box for the main heading */
+.credentials-title-box {
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.credentials-title-box h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin: 0;
+}
+
+/* Main Content Paper for the page sections */
+.credentials-content-paper {
+  background: #cedce3;
+  margin: 20px auto;
+  max-width: 800px;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  color: #000;
+  border-radius: 10px;
+}
+
+/* Honors Section & Gallery */
+.honors-section h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.honors-section p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.honors-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.honors-gallery img {
+  max-width: 150px;
+  height: auto;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+}
+
+.honors-gallery img:hover {
+  border-color: #999;
+}
+
+/* Transcript Section */
+.transcript-section h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.transcript-section p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.transcript-link {
+  color: #000;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Modal styling for images and PDF */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Image modal content remains unchanged */
+.image-modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 10px;
+}
+
+/* PDF modal content set to full screen */
+.pdf-modal-content {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  display: block;
+}
+
+.close-modal {
+  position: absolute;
+  top: 30px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: #999;
+  text-decoration: none;
 }

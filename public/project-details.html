@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="project-details-page">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project Details - Project One</title>
+    <!-- Google Fonts: Montserrat, Roboto Condensed, Oswald, Caveat, Saira, Varela Round, and Open Sans -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Condensed:wght@400;700&family=Oswald:wght@400;700&family=Caveat:wght@400;700&family=Saira:wght@400;700&family=Varela+Round&family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" href="/images/icon.ico" type="image/x-icon" />
+    <!-- Inline style override for project details background -->
+    <style>
+      body.project-details-page {
+        background: url("/images/project-bg.jpg") no-repeat center center fixed;
+        background-size: cover;
+        background-color: #222;
+      }
+    </style>
+  </head>
+  <body class="project-details-page">
+    <!-- Star canvas -->
+    <canvas id="star-canvas"></canvas>
+
+    <!-- Navigation partial (loaded via main.js) -->
+    <div id="navbar"></div>
+
+    <main>
+      <!-- Title Section for Project Details -->
+      <div class="paper credentials-title-paper">
+        <div class="credentials-title-box">
+          <h1>Project One</h1>
+        </div>
+      </div>
+
+      <!-- Project Details Content -->
+      <div class="paper credentials-content-paper">
+        <img
+          src="/images/project1.jpg"
+          alt="Project One"
+          style="width:100%; border-radius: 5px; margin-bottom: 20px;"
+        />
+        <p style="font-family: 'Varela Round', sans-serif; font-size: 1.2rem; margin-bottom: 10px;">
+          <strong>Status:</strong> Deployed
+        </p>
+        <p style="font-family: 'Varela Round', sans-serif; font-size: 1.2rem; margin-bottom: 10px;">
+          <strong>Languages:</strong> HTML, CSS, JavaScript
+        </p>
+        <p style="font-family: 'Varela Round', sans-serif; font-size: 1.2rem; margin-bottom: 10px;">
+          <strong>Licence:</strong> MIT
+        </p>
+        <p style="font-family: 'Varela Round', sans-serif; font-size: 1.2rem; line-height: 1.6; margin-bottom: 20px;">
+          Detailed Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc sit amet laoreet
+          faucibus, nisi eros varius nisl, quis ultricies felis ipsum a justo. Donec suscipit dui et nunc 
+          ullamcorper, at vehicula metus lobortis. Aenean vel libero bibendum, sollicitudin risus vitae, congue lectus.
+        </p>
+        <!-- Download Link and GitHub -->
+        <p style="font-family: 'Varela Round', sans-serif; font-size: 1.2rem; margin-bottom: 10px;">
+          <a href="/downloads/project-one.zip" style="text-decoration: none; color: #0af;">
+            Download Project <i class="fas fa-download"></i>
+          </a>
+        </p>
+        <p style="font-family: 'Varela Round', sans-serif; font-size: 1.2rem; margin-bottom: 10px;">
+          <a href="https://github.com/yourusername/project-one" target="_blank" style="text-decoration: none; color: #0af;">
+            View on GitHub <i class="fab fa-github"></i>
+          </a>
+        </p>
+        <!-- Additional images, details, or links can be added below as needed -->
+      </div>
+    </main>
+
+    <!-- Footer partial (loaded via main.js) -->
+    <div id="footer"></div>
+
+    <!-- Main JS -->
+    <script src="/js/main.js"></script>
+  </body>
+</html>
